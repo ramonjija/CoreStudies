@@ -1,4 +1,6 @@
 ﻿using System;
+using CoreStudies.Dominio.Bridge;
+using CoreStudies.Interfaces.Bridge;
 
 namespace CoreStudies
 {
@@ -6,7 +8,19 @@ namespace CoreStudies
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Switch botao = new Switch();
+            Fan ventilador = new Fan();
+            Light luz = new Light();
+            
+            botao.equipment = ventilador;
+            botao.On();
+            botao.Off();
+            Console.ReadKey();
+            
+            botao.equipment = luz;
+            botao.On();
+            botao.Off();
+            Console.ReadKey();
         }
     }
 }
